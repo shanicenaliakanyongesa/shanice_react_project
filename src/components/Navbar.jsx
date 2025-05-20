@@ -5,7 +5,6 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
 
-  // Check if user is logged in on load
   useEffect(() => {
     const userData = localStorage.getItem("user");
     if (userData) {
@@ -18,19 +17,17 @@ const Navbar = () => {
     localStorage.removeItem("user");
     setIsLoggedIn(false);
     setUser(null);
-    window.location.href = "/"; // Reload to reflect changes immediately
+    window.location.href = "/";
   };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
       <div className="container-fluid">
-        {/* Brand Logo */}
         <Link to="/" className="navbar-brand fw-bold fs-3 text-danger">
           <span className="text-dark">Gym</span>
           <span className="text-danger">Extreme Essentials</span>
         </Link>
 
-        {/* Toggler for mobile view */}
         <button
           className="navbar-toggler"
           type="button"
@@ -43,7 +40,6 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Navbar Links & Buttons */}
         <div
           className="collapse navbar-collapse justify-content-end"
           id="navbarContent"
@@ -57,11 +53,6 @@ const Navbar = () => {
             <li className="nav-item me-3">
               <Link to="/aboutus" className="nav-link fw-semibold text-dark">
                 About Us
-              </Link>
-            </li>
-            <li className="nav-item me-3">
-              <Link to="/addproduct" className="nav-link fw-semibold text-dark">
-                Add Product
               </Link>
             </li>
             <li className="nav-item me-3">
@@ -102,16 +93,14 @@ const Navbar = () => {
                 className="dropdown-menu dropdown-menu-end"
                 aria-labelledby="userDropdown"
               >
-                {user?.isAdmin && (
-                  <li className="nav-item me-3">
-                    <Link
-                      to="/admin/dashboard"
-                      className="nav-link fw-semibold text-dark"
-                    >
-                      Admin Panel
-                    </Link>
-                  </li>
-                )}
+                <li className="dropdown-header small text-muted">
+                  {user?.email}
+                  {user?.is_admin ? (
+                    <span className="badge bg-success ms-2">Admin</span>
+                  ) : (
+                    <span className="badge bg-secondary ms-2">User</span>
+                  )}
+                </li>
                 <li>
                   <Link className="dropdown-item" to="/profile">
                     My Profile
@@ -122,6 +111,16 @@ const Navbar = () => {
                     My Orders
                   </Link>
                 </li>
+                {user?.is_admin && (
+                  <li>
+                    <Link
+                      to="/admin/dashboard"
+                      className="dropdown-item text-primary"
+                    >
+                      Admin Panel
+                    </Link>
+                  </li>
+                )}
                 <li>
                   <hr className="dropdown-divider" />
                 </li>

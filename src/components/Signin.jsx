@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const AdminSignin = () => {
+const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -12,9 +12,9 @@ const AdminSignin = () => {
 
   // Redirect if already logged in
   useEffect(() => {
-    const admin = localStorage.getItem("admin");
-    if (admin) {
-      navigate("/admin/dashboard");
+    const user = localStorage.getItem("user");
+    if (user) {
+      navigate("/");
     }
   }, [navigate]);
 
@@ -29,27 +29,26 @@ const AdminSignin = () => {
 
     try {
       const response = await axios.post(
-        "https://sokotrial.pythonanywhere.com/api/admin/signin ",
-        data,
-        { withCredentials: true }
+        "https://sokotrial.pythonanywhere.com/api/signin ",
+        data
       );
 
-      console.log("Admin Signin Response:", response.data); // 🔍 Debugging line
+      console.log("User Signin Response:", response.data); // 🔍 Debugging line
 
-      if (response.data.user?.is_admin) {
-        // Save admin to localStorage
-        localStorage.setItem("admin", JSON.stringify(response.data.user));
+      if (response.data.user) {
+        // Save user to localStorage
+        localStorage.setItem("user", JSON.stringify(response.data.user));
 
         // Redirect after short delay
         setTimeout(() => {
-          navigate("/admin/dashboard");
+          navigate("/");
         }, 1000);
       } else {
-        setError(response.data.message || "Invalid admin credentials.");
+        setError(response.data.message || "Invalid credentials.");
         setLoading(false);
       }
     } catch (err) {
-      console.error("Admin Signin Error:", err); // 🔍 Debugging line
+      console.error("Signin Error:", err); // 🔍 Debugging line
       setError(err.response?.data?.message || "An unexpected error occurred.");
       setLoading(false);
     }
@@ -60,7 +59,7 @@ const AdminSignin = () => {
       <div className="row justify-content-center">
         <div className="col-md-6 col-lg-5">
           <div className="card shadow-sm border-0 rounded-3 p-4">
-            <h2 className="text-center fw-bold mb-4">Admin Sign In</h2>
+            <h2 className="text-center fw-bold mb-4">Sign In</h2>
 
             {/* Loading / Error Messages */}
             {loading && (
@@ -78,7 +77,7 @@ const AdminSignin = () => {
                 <input
                   type="email"
                   id="email"
-                  placeholder="admin@example.com"
+                  placeholder="you@example.com"
                   className="form-control"
                   required
                   value={email}
@@ -116,4 +115,4 @@ const AdminSignin = () => {
   );
 };
 
-export default AdminSignin;
+export default Signin;

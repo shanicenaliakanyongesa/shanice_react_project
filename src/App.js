@@ -22,6 +22,8 @@ import AdminProducts from "./components/AdminProducts"; // You'll create this ne
 import AdminOrders from "./components/AdminOrders"; // Optional
 import AdminUsers from "./components/AdminUsers";
 import EditProduct from "./components/EditProduct";
+import EditUser from "./components/EditUser";
+import AdminSidebar from "./components/AdminSidebar";
 
 function App() {
   return (
@@ -65,6 +67,7 @@ function App() {
     </AdminProtectedRoute>
   }
 />
+<Route path="/admin/users/edit/:user_id" element={<EditUser />} />
  
 
 

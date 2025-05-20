@@ -56,7 +56,7 @@ const EditProduct = () => {
     e.preventDefault();
     setSuccess("");
     setError("");
-
+  
     const formData = new FormData();
     formData.append("product_name", name);
     formData.append("product_description", description);
@@ -64,12 +64,18 @@ const EditProduct = () => {
     if (photo) {
       formData.append("product_photo", photo);
     }
-
+  
     try {
       await axios.post(
-        formData
+        `https://sokotrial.pythonanywhere.com/api/admin/products/edit/${parseInt(product_id)}`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
       );
-
+  
       setSuccess("Product updated successfully!");
       setTimeout(() => {
         navigate("/admin/products");

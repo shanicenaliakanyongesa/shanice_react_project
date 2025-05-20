@@ -32,7 +32,7 @@ const AdminProducts = () => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       try {
         await axios.delete(
-          `https://sokotrial.pythonanywhere.com/api/admin/products/delete/ ${id}`
+          `https://sokotrial.pythonanywhere.com/api/admin/products/delete/${id}`
         );
         fetchProducts(); // Refresh list
       } catch (err) {

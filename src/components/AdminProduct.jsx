@@ -18,7 +18,7 @@ const AddEditProduct = () => {
   useEffect(() => {
     if (isEdit) {
       axios
-        .get(`https://manuel254.pythonanywhere.com/api/products/ ${product_id}`)
+        .get(`https://sokotrial.pythonanywhere.com/api/products/${product_id}`)
         .then((res) => {
           const prod = res.data;
           setName(prod.product_name);
@@ -41,12 +41,12 @@ const AddEditProduct = () => {
     try {
       if (isEdit) {
         await axios.post(
-          `https://sokotrial.pythonanywhere.com/api/admin/products/edit/ ${product_id}`,
+          `https://sokotrial.pythonanywhere.com/api/admin/products/edit/${product_id}`,
           data
         );
       } else {
         await axios.post(
-          "https://sokotrial.pythonanywhere.com/api/admin/products/add ",
+          "https://sokotrial.pythonanywhere.com/api/admin/products/add",
           data
         );
       }
