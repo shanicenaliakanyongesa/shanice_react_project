@@ -9,12 +9,12 @@ const Footer = () => {
           {/* Column 1: About Us */}
           <div className="col-md-4">
             <h5 className="footer-heading mb-3">Gym Extreme Essentials</h5>
-            <p className="small text-muted">
+            <p className="small text-light">
               Your one-stop shop for premium fitness gear, supplements, and apparel to power your workouts.
             </p>
 
             {/* Social Media Icons */}
-            <div className="d-flex gap-3 mt-3">
+            <div className="d-flex gap-3 mt-3  mx-4">
               <Link to="#" className="text-white fs-5" aria-label="Facebook">
                 <i className="fab fa-facebook-square"></i>
               </Link>
