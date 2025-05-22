@@ -115,7 +115,7 @@ const Makepayment = () => {
                     type="text"
                     id="phone"
                     className="form-control form-control-lg"
-                    placeholder="Enter M-Pesa registered number (e.g., 254712345678)"
+                    placeholder="Enter number 254712345678"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     required
