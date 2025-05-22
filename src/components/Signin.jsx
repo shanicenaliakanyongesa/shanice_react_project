@@ -33,11 +33,14 @@ const Signin = () => {
         data
       );
 
-      console.log("User Signin Response:", response.data); // 🔍 Debugging line
+      console.log("User Signin Response:", response.data); // Debugging line
 
       if (response.data.user) {
         // Save user to localStorage
         localStorage.setItem("user", JSON.stringify(response.data.user));
+
+        // Notify other components like Navbar
+        window.dispatchEvent(new Event("storage"));
 
         // Redirect after short delay
         setTimeout(() => {
@@ -48,7 +51,7 @@ const Signin = () => {
         setLoading(false);
       }
     } catch (err) {
-      console.error("Signin Error:", err); // 🔍 Debugging line
+      console.error("Signin Error:", err); // Debugging line
       setError(err.response?.data?.message || "An unexpected error occurred.");
       setLoading(false);
     }

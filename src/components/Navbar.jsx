@@ -11,10 +11,28 @@ const Navbar = () => {
       setIsLoggedIn(true);
       setUser(JSON.parse(userData));
     }
+
+    const handleStorageChange = () => {
+      const updatedUser = localStorage.getItem("user");
+      if (updatedUser) {
+        setIsLoggedIn(true);
+        setUser(JSON.parse(updatedUser));
+      } else {
+        setIsLoggedIn(false);
+        setUser(null);
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
   }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("user");
+    window.dispatchEvent(new Event("storage")); // Notify others
     setIsLoggedIn(false);
     setUser(null);
     window.location.href = "/";

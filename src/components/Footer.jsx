@@ -14,7 +14,7 @@ const Footer = () => {
             </p>
 
             {/* Social Media Icons */}
-            <div className="d-flex gap-3 mt-3  mx-4">
+            <div className="d-flex gap-3 mt-3 mx-4">
               <Link to="#" className="text-white fs-5" aria-label="Facebook">
                 <i className="fab fa-facebook-square"></i>
               </Link>
@@ -30,7 +30,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2: Quick Links + Categories */}
+          {/* Column 2: Quick Links */}
           <div className="col-md-4">
             <h5 className="footer-heading mb-3">Quick Links</h5>
             <ul className="list-unstyled small mb-4 footer-list">
@@ -60,41 +60,12 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-
-            <h5 className="footer-heading mb-3">Categories</h5>
-            <ul className="list-unstyled small footer-list">
-              <li className="mb-2">
-                <Link to="/category/supplements" className="footer-link text-decoration-none">
-                  Supplements
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link to="/category/apparel" className="footer-link text-decoration-none">
-                  Apparel
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link to="/category/equipment" className="footer-link text-decoration-none">
-                  Equipment
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link to="/category/accessories" className="footer-link text-decoration-none">
-                  Accessories
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link to="/category/proteins" className="footer-link text-decoration-none">
-                  Protein Powders
-                </Link>
-              </li>
-            </ul>
           </div>
 
           {/* Column 3: Newsletter / Contact */}
           <div className="col-md-4">
             <h5 className="footer-heading mb-3">Stay Connected</h5>
-            <p className="small text-muted">Subscribe to our newsletter for updates and offers.</p>
+            <p className="small text-light">Subscribe to our newsletter for updates and offers.</p>
             <form className="d-flex mb-3 footer-input-group">
               <input
                 type="email"
@@ -107,8 +78,8 @@ const Footer = () => {
               </button>
             </form>
 
-            <h6 className="small text-muted mt-3">Follow us for tips & offers:</h6>
-            <p className="small text-muted">
+            <h6 className="small text-light mt-3">Follow us for tips & offers:</h6>
+            <p className="small text-light">
               Have questions? Reach out at{" "}
               <a href="mailto:support@gymextreme.com" className="footer-link text-decoration-none">
                 support@gymextreme.com
