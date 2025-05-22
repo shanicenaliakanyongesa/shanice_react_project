@@ -203,7 +203,7 @@ const Getproducts = () => {
       <div className="row g-4">
         {currentProducts.map((product, index) => (
           <div key={index} className="col-sm-6 col-md-4 col-lg-3">
-            <div className="card h-100 shadow-sm border-0 hover-lift">
+            <div className="cardd h-100 shadow-sm border-0 hover-lift">
               <img
                 src={img_url + product.product_photo}
                 alt={product.product_name}

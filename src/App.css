@@ -36,11 +36,19 @@
     transform: rotate(360deg);
   }
 }
-.product_img{
-  object-fit: contain;
-  width: 100%;
-  height: 200px;
-}
+  .cardd {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden; /* Ensures inner content doesn't break layout */
+  }
+  
+  .product_img {
+    width: 100%;
+    height: 200px; /* or use auto if you want dynamic height */
+    object-fit: contain;
+    background-color: #f8f9fa; /* Optional: add a light background to avoid empty white space */
+  }
 /* Hero Section */
 .hero-section {
   position: relative;
@@ -201,4 +209,77 @@ footer a:hover {
 
 .list-unstyled small {
   color: #6c757d;
+}
+.footer-bg {
+  background-color: #0d0d0d;
+}
+
+.footer-heading {
+  color: #ff4d4d;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.footer-link {
+  color: #e6e6e6;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-list li a {
+  position: relative;
+  padding-left: 10px;
+}
+
+.footer-list li a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.footer-list li a:hover::before {
+  background-color: #ff4d4d;
+}
+
+.footer-input-group input {
+  border-radius: 2rem 0 0 2rem;
+  border-right: none;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.footer-input-group .btn-danger {
+  border-radius: 0 2rem 2rem 0;
+  background-color: #ff4d4d;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.footer-input-group .btn-danger:hover {
+  background-color: #e60000;
+}
+
+.payment-icons img {
+  transition: transform 0.3s ease;
+}
+
+.payment-icons img:hover {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  color: #8c8c8c;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }

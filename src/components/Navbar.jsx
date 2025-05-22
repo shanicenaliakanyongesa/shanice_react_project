@@ -24,8 +24,8 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand fw-bold fs-3 text-danger">
-          <span className="text-dark">Gym</span>
-          <span className="text-danger">Extreme Essentials</span>
+          <span className="text-dark">GymXtreme</span>
+          <span className="text-danger"> Essentials</span>
         </Link>
 
         <button
